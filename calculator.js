@@ -16,6 +16,11 @@ const btn_clear = document.querySelector(".btn_clear")
 const btn_equal = document.querySelector(".btn_equal")
 const btn_div = document.querySelector(".btn_div")
 const input = document.querySelector(".input")
+const btn_float = document.querySelector(".btn_float")
+const btn_sqroot = document.querySelector(".btn_sqroot")
+const btn_MOD = document.querySelector(".btn_MOD")
+const btn_Log = document.querySelector(".btn_Log")
+
 
 
 
@@ -25,7 +30,8 @@ const input = document.querySelector(".input")
 document.querySelectorAll(".btn").forEach((button) => {
      if (
     !button.classList.contains("btn_clear") &&
-    !button.classList.contains("btn_equal")
+    !button.classList.contains("btn_equal") && 
+    !button.classList.contains("btn_sqroot")
   )
   button.addEventListener("click", () => {
     input.value += button.textContent;
@@ -36,6 +42,7 @@ document.querySelectorAll(".btn").forEach((button) => {
 btn_clear.addEventListener('click',()=>{
     input.value =""
 })
+
 btn_equal.addEventListener('click',()=>{
     try {
     input.value = eval(input.value); 
@@ -43,5 +50,28 @@ btn_equal.addEventListener('click',()=>{
     input.value = "Error";
   }
 })
+
+
+btn_sqroot.addEventListener('click', ()=>{
+  try{
+    const result = eval(input.value)
+    input.value = Math.sqrt(result)
+  }
+  catch{
+    input.value = "Error"
+  }
+})
+
+
+btn_Log.addEventListener('click', ()=>{
+  try{
+    const result = eval(input.value)
+    input.value = Math.log(result)
+  }
+  catch{
+    input.value = "Error"
+  }
+})
+
 
 
